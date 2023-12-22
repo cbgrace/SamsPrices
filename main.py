@@ -3,6 +3,10 @@ from selenium.webdriver.common.by import By
 
 
 def main():
+    """
+    test code to teach myself selenium
+    :return:
+    """
     driver = webdriver.Chrome()
 
     driver.get("https://www.samsclub.com/p/case-sale-90-percent-lean-ground-beef-chubs/prod17160007?xid=plp_product_3")
