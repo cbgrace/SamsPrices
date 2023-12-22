@@ -1,7 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.common.exceptions import *
+from contextlib import contextmanager
 
+
+@contextmanager
 def make_driver(url):
     """
 
@@ -12,7 +15,6 @@ def make_driver(url):
     try:
         driver = webdriver.Chrome()
         driver.get(url)
-        driver.implicitly_wait(0.8)
         yield driver
     except (TimeoutException, NoSuchWindowException) as e:
         print(f"an error occurred: {e}")
@@ -28,6 +30,7 @@ def get_data(url):
     :return: item_name, current_price, inline_price
     """
     with make_driver(url) as driver:
+        driver.implicitly_wait(0.9)
         try:
             item_name = driver.find_element(by=By.CLASS_NAME, value="sc-pc-title-full-desktop")
             current_price = driver.find_element(by=By.CLASS_NAME, value="Price-group")

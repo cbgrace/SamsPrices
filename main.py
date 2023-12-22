@@ -1,6 +1,10 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 
+"""
+have to scrap this for now I'm getting too many rejection errors from the website
+"""
+
 
 def main():
     """

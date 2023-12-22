@@ -20,4 +20,8 @@ last is inline_price
 
 def process_data(url):
     item_name, current_price, inline_price = get_data(url)
-    
+    print(item_name.text.split('\n'))
+
+
+
+process_data("https://www.samsclub.com/p/case-sale-90-percent-lean-ground-beef-chubs/prod17160007?xid=plp_product_3")
