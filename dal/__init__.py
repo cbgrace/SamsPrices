@@ -1,0 +1,1 @@
+from .sams_dal import get_data

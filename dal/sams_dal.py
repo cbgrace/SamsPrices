@@ -25,15 +25,15 @@ def get_data(url):
     """
 
     :param url: the url behind which our data lies
-    :return:
+    :return: item_name, current_price, inline_price
     """
     with make_driver(url) as driver:
         try:
             item_name = driver.find_element(by=By.CLASS_NAME, value="sc-pc-title-full-desktop")
             current_price = driver.find_element(by=By.CLASS_NAME, value="Price-group")
             inline_price = driver.find_element(by=By.CLASS_NAME, value="sc-pc-single-price-inline-price")
-            return item_name, per_lb_price, total_price
-        except NoSuchElementException as e:
+            return item_name, current_price, inline_price
+        except NoSuchElementException as e:  # there are probably more errors I should catch?
             print(f"element not found {e}")
             return None
 
